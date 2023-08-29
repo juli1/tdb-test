@@ -3,11 +3,11 @@ on: [push]
 jobs:
   check-quality:
     runs-on: ubuntu-latest
-    name: Datadog Static Analyzer
+    name: Datadog SBOM Generation and Upload
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Generate and Upload
+    - name: Generate SBOM and Upload
       id: tdb-tests
       uses: juli1/tdb-github-action@main
       with:
