@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  check-quality:
+    runs-on: ubuntu-latest
+    name: Datadog Static Analyzer
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Generate and Upload
+      id: tdb-tests
+      uses: juli1/tdb-github-action@main
+      with:
+        dd_api_key: ${{ secrets.DD_API_KEY }}
+        dd_app_key: ${{ secrets.DD_APP_KEY }}
+        dd_service: vscode-plugin
+        dd_site: datad0g.com
+        dd_env: ci
